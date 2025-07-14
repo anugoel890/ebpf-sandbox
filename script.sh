@@ -2,9 +2,17 @@
 
 set -e  # Stop on error
 
+# Activate virtual environment (adjust path if different)
+source /workspaces/ebpf-sandbox/venv/bin/activate
+
+# Upgrade pip/setuptools/wheel inside venv
+pip install --upgrade pip setuptools wheel
+
 # Remove broken iovisor repo if present
 sudo rm -f /etc/apt/sources.list.d/iovisor.list
 sudo apt update
+
+sudo apt install -y libpolly-14-dev
 
 # Install required packages
 sudo apt install -y \
@@ -18,6 +26,7 @@ sudo apt install -y \
 if [ ! -d bcc ]; then
   git clone https://github.com/iovisor/bcc.git
 fi
+
 cd bcc
 
 # Create build directory and build
@@ -31,11 +40,7 @@ cmake .. -DCMAKE_INSTALL_PREFIX=/usr \
 make -j$(nproc)
 sudo make install
 
-# Activate virtual environment (adjust path if different)
-source /workspaces/ebpf-sandbox/venv/bin/activate
 
-# Upgrade pip/setuptools/wheel inside venv
-pip install --upgrade pip setuptools wheel
 
 # Install Python bindings from generated build folder
 cd src/python/bcc-python3
