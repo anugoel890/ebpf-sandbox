@@ -4,7 +4,7 @@ import threading
 # eBPF program to trace syscalls (simplified)
 ebpf_code = """
 int trace_syscalls(void *ctx) {
-    bpf_trace_printk("LLM syscall detected\n");
+    bpf_trace_printk("LLM syscall detected");
     return 0;
 }
 """

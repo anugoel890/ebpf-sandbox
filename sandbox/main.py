@@ -25,5 +25,5 @@ def run_llm_tool(cmd: list):
 
 # Example: sandboxed LLM tool
 if __name__ == "__main__":
-    run_llm_tool(["python3", "examples/fake_llm_plugin.py"])
+    run_llm_tool(["python3", "examples/llm_plugin.py"])
 
