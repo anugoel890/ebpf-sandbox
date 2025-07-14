@@ -1,0 +1,10 @@
+{
+  "name": "eBPF Sandbox Devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "settings": {},
+  "extensions": [],
+  "remoteUser": "vscode"
+}
