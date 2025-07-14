@@ -1,10 +1,14 @@
 {
-  "name": "eBPF Sandbox Devcontainer",
+  "name": "eBPF Sandbox",
   "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
+    "dockerfile": "Dockerfile"
   },
-  "settings": {},
-  "extensions": [],
-  "remoteUser": "vscode"
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": ["ms-python.python"]
+    }
+  },
+  "postCreateCommand": "python3 --version"
 }
